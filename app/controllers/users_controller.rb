@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  #before_action :require_user_logged_in, only: [:index, :show]
+  before_action :require_user_logged_in
   
   #def index(ユーザー一覧は必要ないのでこの指示は不要かも)
   #  @pagy, @users = pagy(User.order(id: :desc), items: 25) 
