@@ -1,0 +1,22 @@
+<% if todos.any? %>
+  <ul class="list-unstyled mt-2">
+    <% todos.each do |todo| %>
+      <li class="d-flex">
+        <div>
+          <div>
+            <%= link_to todo.user.name, user_path(todo.user), class: "text-decoration-none" %> <span class="text-muted">posted at <%= todo.created_at %></span>
+          </div>
+          <div>
+            <p><%= todo.content %></p>
+          </div>
+          <div>
+            <% if current_user == todo.user %>
+              <%= link_to "Delete", todo, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+            <% end %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%== pagy_bootstrap_nav(@pagy) %>
+<% end %>

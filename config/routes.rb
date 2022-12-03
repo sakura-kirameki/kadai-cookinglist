@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :create]
   
   resources :cookinglists, only: [:create, :destroy]
+  resources :todos, only: [:index, :create, :destroy]
 end

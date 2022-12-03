@@ -1,8 +1,8 @@
 <% if logged_in? %>
-  <h1>料理リスト一覧</h1>
+  <h1>買うものリスト一覧</h1>
   <div class="row">
     <aside class="col-sm-4">
-      <%= form_with(model: @cookinglist) do |f| %>
+      <%= form_with(model: @todo) do |f| %>
         <div class="mb-3">
           <%= f.text_area :content, class: 'form-control', rows: 5 %>
         </div>
@@ -10,7 +10,7 @@
       <% end %>
     </aside>
     <div class="col-sm-8">
-      <%= render 'cookinglists/cookinglists', cookinglists: @cookinglists %>
+      <%= render 'todos/todos', todos: @todos %>
     </div>
   </div>
 <% else %>

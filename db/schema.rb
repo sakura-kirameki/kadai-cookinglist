@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_03_104431) do
+ActiveRecord::Schema.define(version: 2022_12_03_111503) do
 
   create_table "cookinglists", charset: "utf8mb4", force: :cascade do |t|
     t.string "content"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 2022_12_03_104431) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_cookinglists_on_user_id"
+  end
+
+  create_table "todos", charset: "utf8mb4", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_todos_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -29,4 +37,5 @@ ActiveRecord::Schema.define(version: 2022_12_03_104431) do
   end
 
   add_foreign_key "cookinglists", "users"
+  add_foreign_key "todos", "users"
 end
