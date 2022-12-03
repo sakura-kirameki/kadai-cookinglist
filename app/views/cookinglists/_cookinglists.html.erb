@@ -1,0 +1,22 @@
+<% if cookinglists.any? %>
+  <ul class="list-unstyled mt-2">
+    <% cookinglists.each do |cookinglist| %>
+      <li class="d-flex">
+        <div>
+          <div>
+            <%= link_to cookinglist.user.name, user_path(cookinglist.user), class: "text-decoration-none" %> <span class="text-muted">posted at <%= cookinglist.created_at %></span>
+          </div>
+          <div>
+            <p><%= cookinglist.content %></p>
+          </div>
+          <div>
+            <% if current_user == cookinglist.user %>
+              <%= link_to "Delete", cookinglist, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+            <% end %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%== pagy_bootstrap_nav(@pagy) %>
+<% end %>
