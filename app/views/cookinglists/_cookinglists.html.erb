@@ -4,7 +4,8 @@
       <li class="d-flex">
         <div>
           <div>
-            <p><%= cookinglist.content %></p>
+            <p>作成日：<%= cookinglist.created_at %></p>
+            <p>献立：<%= cookinglist.content %></p>
           </div>
           <div>
             <% if current_user == cookinglist.user %>
